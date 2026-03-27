@@ -1,5 +1,5 @@
 nodes = {
-  "10.0.4.101" = {
+  "10.10.0.31" = {
     name             = "talos-cp-1"
     target_node_name = "pve2"
     disk_size        = "32G"
@@ -14,7 +14,7 @@ nodes = {
       },
     ]
   }
-  "10.0.4.102" = {
+  "10.10.0.32" = {
     name             = "talos-cp-2"
     target_node_name = "pve"
     disk_size        = "32G"
@@ -30,7 +30,7 @@ nodes = {
     ]
     
   }
-  "10.0.4.103" = {
+  "10.10.0.33" = {
     name             = "talos-cp-3"
     target_node_name = "pve"
     disk_size        = "32G"
@@ -45,7 +45,7 @@ nodes = {
       },
     ]
   }
-  "10.0.4.104" = {
+  /*"10.10.0.34" = {
     name             = "talos-w-1"
     target_node_name = "pve2"
     disk_size        = "32G"
@@ -59,7 +59,7 @@ nodes = {
       },
     ]
   }
-  "10.0.4.105" = {
+  "10.10.0.35" = {
     name             = "talos-w-2"
     target_node_name = "pve2"
     disk_size        = "32G"
@@ -73,7 +73,7 @@ nodes = {
       },
     ]
   }
-  "10.0.4.106" = {
+  "10.10.0.36" = {
     name             = "talos-w-3"
     target_node_name = "pve"
     disk_size        = "32G"
@@ -88,20 +88,22 @@ nodes = {
     ]
   }
 }
+*/
 
-ip_base             = "10.0.4.0"
+#todo: line 93-96 need to change to follow new network pattern
+ip_base             = "10.0.0.0"
 cidr                = 9
 gateway             = "10.0.0.1"
 cluster_endpoint_ip = "10.0.4.100"
 nameservers         = ["1.1.1.1", "10.0.0.1"]
 
-proxmox_image   = "local:iso/talos-metal-qemu-1.7.5.iso"
+proxmox_image   = "local:iso/talos-metal-qemu-1.7.5.iso" # Update
 proxmox_storage = "local-zfs"
 
 cluster_name = "controlplane-cluster"
 allow_scheduling_on_controlplane = true
 
-gitops_addons_org = "https://github.com/jamesatintegratnio"
+gitops_addons_org = "https://github.com/jt4862"
 gitops_addons_repo = "gitops-homelab"
 gitops_addons_basepath = "gitops/"
 gitops_addons_path = "bootstrap/control-plane/addons"
@@ -112,7 +114,7 @@ extra_manifests = [
   "https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml"
 ]
 
-cloudflare_zone_name = "integratn.tech"
+cloudflare_zone_name = "flyingprepper.com"
 
 cloudflare_records = {
   "controlplane" = {
